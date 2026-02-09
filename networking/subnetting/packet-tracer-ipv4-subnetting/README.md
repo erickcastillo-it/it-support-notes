@@ -49,5 +49,5 @@ This mask satisfies both current and future network needs.
 - `subnet-calculation.md`: Subnetting calculations and logic
 
 ## Lessons Learned
-This exercise helped reinforce subnetting concepts, address planning,
-and the importance of structured network documentation.
+This lab reinforced IPv4 subnetting concepts, address planning, and the importance of clear network documentation when deploying and troubleshooting real networks.
+
