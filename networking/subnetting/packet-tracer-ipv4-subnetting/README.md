@@ -44,9 +44,10 @@ This mask satisfies both current and future network needs.
 - PC-A to PC-B: Successful
 
 ## Files included
-- `packet-tracer-ipv4-subnetting.pka`: Packet Tracer lab file
-- `addressing-table.md`: IP addressing details
-- `subnet-calculation.md`: Subnetting calculations and logic
+- [packet-tracer-ipv4-subnetting.pka](packet-tracer-ipv4-subnetting.pka) – Packet Tracer lab file
+- [addressing-table.md](addressing-table.md) – IP addressing details
+- [subnet-calculation.md](subnet-calculation.md) – Subnetting calculations and logic
+
 
 ## Lessons Learned
 This lab reinforced IPv4 subnetting concepts, address planning, and the importance of clear network documentation when deploying and troubleshooting real networks.
