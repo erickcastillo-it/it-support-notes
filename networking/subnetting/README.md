@@ -1,12 +1,13 @@
 # Subnetting Practice
 
-This section contains practical subnetting exercises focused on IPv4 addressing.
-The goal is to document real Packet Tracer labs, subnet calculations, and
-network design decisions commonly used in entry-level networking roles.
+This section contains practical IPv4 subnetting exercises documented using Packet Tracer labs.  
+The focus is on real-world address planning, configuration, and verification tasks commonly performed in entry-level networking and IT support roles.
 
-## Topics covered
+## Topics Covered
+
 - Fixed Length Subnet Mask (FLSM)
 - Host requirements analysis
-- Addressing tables
+- Subnet calculations
+- IP addressing tables
 - Router and switch configuration
-- Connectivity testing and troubleshooting
+- Connectivity testing and basic troubleshooting
