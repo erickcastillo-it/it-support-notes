@@ -12,7 +12,7 @@ connected to an ISP.
 - Troubleshoot addressing issues
 
 ## Network Topology
-![Network Topology](networking/subnetting/packet-tracer-ipv4-subnetting/ipv4-subnetting-topology.png)
+![Network Topology](ipv4-subnetting-topology.png)
 
 ## Requirements
 - LAN-A: minimum 50 hosts
