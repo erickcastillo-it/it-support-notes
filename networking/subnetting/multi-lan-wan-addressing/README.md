@@ -1,96 +1,60 @@
-Packet Tracer – IPv4 Subnetting Scenario (192.168.100.0/24)
+Packet Tracer – IPv4 Subnetting Design and Implementation (192.168.100.0/24)
 
-Overview This lab focuses on designing and implementing an IPv4 subnetting scheme based on a given /24 network. The objective is to divide the network into multiple subnets to support four LAN segments and one WAN link between two routers.
+Project Summary This lab documents the design and implementation of a fixed-length IPv4 subnetting scheme using the network 192.168.100.0/24. The objective was to divide the address space to support four LAN segments and one WAN link between two routers, ensuring each LAN provides capacity for at least 25 hosts.
 
-The exercise simulates a real-world scenario where a company must allocate address space efficiently while meeting minimum host requirements per LAN.
+The exercise simulates a small enterprise environment where structured address planning, consistent allocation rules, and verification procedures are required.
 
-Objectives Part 1: Design an IPv4 Addressing Scheme
+Network Topology The topology includes:
 
-Determine the required number of subnets
+2 Routers (R1 and R2)
 
-Calculate borrowed bits
+4 LAN segments
 
-Identify total subnets created
+1 WAN link between R1 and R2
 
-Calculate usable host addresses per subnet
+4 Access Switches (S1–S4)
 
-Build a complete subnet table
+4 End Devices (PC1–PC4)
 
-Document the addressing plan
-
-Part 2: Implement and Verify Connectivity
-
-Assign IP addresses to routers, switches, and PCs
-
-Configure LAN interfaces
-
-Configure switch management interfaces
-
-Configure end devices
-
-Verify connectivity using ping
-
-Network Scenario Base Network: 192.168.100.0/24
-
-Topology Includes:
-
-Router R1 (2 LAN interfaces + 1 WAN interface)
-
-Router R2 (2 LAN interfaces + 1 WAN interface)
-
-Four LAN segments
-
-One WAN link between R1 and R2
-
-Four switches (S1–S4)
-
-Four PCs (PC1–PC4)
-
-Each LAN must support at least 25 host addresses, including:
-
-End devices
-
-Switch management interface
+Each LAN requires sufficient addressing for:
 
 Router interface
 
-The WAN link requires two usable IP addresses (one per router interface).
+Switch management interface (VLAN 1)
 
-Part 1 – Addressing Design
+End devices
 
-Step 1: Subnet the Network Subnet 192.168.100.0/24 to meet the following requirements:
+The WAN link requires two usable IP addresses, one per router interface.
 
-Determine how many subnets are required based on the topology.
+Design Requirements Base Network: 192.168.100.0/24
 
-Calculate how many bits must be borrowed from the host portion.
+Constraints:
 
-Identify how many subnets are created.
+Each LAN must support a minimum of 25 usable host addresses.
 
-Determine how many usable host addresses are available per subnet.
+All subnets must be derived from the /24 network.
 
-Ensure each LAN supports at least 25 usable hosts.
+Subnetting must satisfy both LAN and WAN requirements.
 
-Avoid borrowing too many bits.
+Address allocation must follow a consistent and documented rule set.
 
-Step 2: Binary Subnet Representation Document the binary values of the first five subnets. Include:
+Addressing Strategy The subnetting process followed these steps:
 
-Subnet number
+Determine the total number of required subnets based on the topology.
 
-Network address
+Borrow the appropriate number of bits from the host portion.
 
-Bit values for the fourth octet
+Validate that the resulting subnet size supports at least 25 usable hosts per LAN.
 
-Step 3: Subnet Mask Calculation Document:
+Calculate:
 
-Binary representation of the new subnet mask
+Total subnets created
 
-Decimal representation of the subnet mask
+Usable hosts per subnet
 
-Prefix length notation
+Binary representation of subnet increments
 
-Step 4: Subnet Table Complete a structured subnet table including:
-
-Subnet number
+Build a complete subnet table including:
 
 Subnet address
 
@@ -100,9 +64,7 @@ Last usable host
 
 Broadcast address
 
-Include only the subnets that are created based on your calculations.
-
-Step 5: Subnet Assignment to Topology Assign subnets as follows:
+Subnet Allocation to Topology Subnets were assigned as follows:
 
 Subnet 0 → R1 G0/0 LAN
 
@@ -114,80 +76,86 @@ Subnet 3 → R2 G0/1 LAN
 
 Subnet 4 → WAN link between R1 and R2
 
-Step 6: Addressing Plan Rules Follow these allocation guidelines:
+IP Address Allocation Rules To maintain consistency and clarity, the following allocation policy was applied:
 
 Routers
 
-Assign the first usable IP addresses to R1 (LAN interfaces and WAN interface).
+First usable IP addresses assigned to R1 interfaces.
 
-Assign the first usable IP addresses to R2 LAN interfaces.
+First usable IP addresses assigned to R2 LAN interfaces.
 
-Assign the last usable IP address of the WAN subnet to R2.
+Last usable IP address in the WAN subnet assigned to R2.
 
 Switches
 
-Assign the second usable IP address in each LAN subnet to the switch VLAN 1 interface.
+Second usable IP address in each LAN assigned to VLAN 1.
 
 Hosts
 
-Assign the last usable IP address in each LAN subnet to the PCs.
+Last usable IP address in each LAN assigned to the PC.
 
-Document the complete addressing table clearly.
+This structured allocation approach simplifies troubleshooting and improves documentation clarity.
 
-Part 2 – Implementation
+Implementation The following configurations were completed in Packet Tracer:
 
-Step 1: Configure R1 LAN Interfaces
+Routers
 
-Assign IP addresses according to the addressing table.
+LAN interfaces configured with assigned IP addresses.
 
-Enable interfaces.
+WAN interfaces configured and enabled.
 
-Ensure hosts can reach the default gateway.
+Interfaces verified as operational.
 
-Step 2: Configure Switch S3
+Switches
 
-Assign IP address to VLAN 1.
+VLAN 1 management interface configured.
 
-Configure the default gateway.
+Default gateway configured to router LAN interface.
 
-Step 3: Configure PC4
+End Devices
 
-Assign IP address.
+IP address configured.
 
-Configure subnet mask.
+Subnet mask configured.
 
-Configure default gateway.
+Default gateway configured.
 
-Step 4: Verify Connectivity You should be able to:
+Routing Dynamic routing (EIGRP) was preconfigured between R1 and R2. Only IP addressing configuration was required.
 
-Ping the default gateway from hosts.
+Verification and Testing Connectivity was validated using the following tests:
 
-Verify inter-LAN connectivity.
+Host to default gateway
 
-Confirm WAN connectivity between routers.
+Inter-LAN communication
 
-EIGRP is preconfigured between R1 and R2. Only addressing must be completed.
+End-to-end connectivity across WAN link
 
-Deliverables for GitHub Include the following files in this folder:
+Router-to-router reachability
 
-subnetting-scenario-192.168.100.0.pka – Packet Tracer file
+All devices successfully responded to ICMP echo requests according to the addressing plan.
 
-topology.png – Network topology image
+Project Files
+
+subnetting-scenario-192.168.100.0.pka – Packet Tracer configuration file
+
+topology.png – Network topology diagram
 
 addressing-table.md – Completed IP addressing table
 
-subnet-calculations.md – Subnetting calculations and binary analysis
+subnet-calculations.md – Subnetting calculations and binary breakdown
 
-Lessons Reinforced
+Technical Skills Demonstrated
 
-Fixed-length subnetting design
+Fixed-length subnetting (FLSM)
 
-Binary-to-decimal subnet calculations
+Binary subnet analysis
 
-Structured IP allocation strategy
+Structured IP allocation planning
 
-LAN vs WAN addressing considerations
+Router and switch interface configuration
 
-Verification and troubleshooting methodology
+Default gateway configuration
 
-This lab demonstrates structured network planning and disciplined IP address documentation aligned with CCNA-level subnetting practices.
+Connectivity verification and troubleshooting methodology
+
+Conclusion This lab reinforces disciplined IPv4 address planning in a multi-LAN and WAN environment. The structured subnet allocation model ensures scalability, clarity in documentation, and simplified troubleshooting, aligning with CCNA-level network design practices.
