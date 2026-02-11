@@ -1,0 +1,158 @@
+# 📡 Packet Tracer – División en Subredes (Multi‑LAN + WAN)
+
+## 📌 Descripción general
+
+Este laboratorio de **Packet Tracer** se centra en el **diseño y documentación de un esquema de direccionamiento IPv4** a partir de una red base asignada. El objetivo principal no es solo calcular subredes, sino **aplicar criterios de diseño realistas**, asignar direcciones de forma consistente y verificar la conectividad en una topología con múltiples LAN y un enlace WAN.
+
+El ejercicio simula un escenario típico de red empresarial pequeña/mediana con:
+
+* Dos routers interconectados por un enlace WAN.
+* Cuatro LAN independientes.
+* Switches de acceso y hosts finales.
+
+---
+
+## 🎯 Objetivos del laboratorio
+
+### Parte 1 – Diseño del esquema de direccionamiento IP
+
+* Subnetear una red IPv4 /24 según los requerimientos de la topología.
+* Determinar la cantidad de subredes necesarias.
+* Calcular la nueva máscara de subred.
+* Identificar direcciones de red, hosts utilizables y broadcast.
+
+### Parte 2 – Asignación y verificación
+
+* Asignar direcciones IP a routers, switches y hosts.
+* Configurar gateways predeterminados.
+* Verificar conectividad mediante pruebas de ping.
+
+---
+
+## 🧩 Escenario
+
+Se asigna la red **192.168.100.0/24** para el diseño del direccionamiento.
+
+### Requisitos de la red
+
+* Cada **LAN** debe soportar al menos **25 direcciones IP** (hosts + switch + router).
+* El enlace **WAN entre R1 y R2** requiere una dirección IP por cada extremo.
+* El enrutamiento dinámico **EIGRP** ya se encuentra configurado entre los routers.
+
+---
+
+## 🗺️ Topología
+
+La topología incluye:
+
+* Routers: R1 y R2
+* Switches: S1, S2, S3 y S4
+* Hosts: PC1, PC2, PC3 y PC4
+
+> 📷 La imagen de la topología se incluye en este repositorio para referencia visual.
+
+---
+
+## 🧠 Parte 1 – Diseño del direccionamiento IP
+
+### Paso 1: Análisis de subnetting
+
+A partir de la topología se debe:
+
+* Identificar cuántas subredes son necesarias.
+* Determinar cuántos bits deben tomarse prestados del campo de host.
+* Calcular cuántas subredes se generan.
+* Verificar que cada subred tenga suficientes hosts utilizables.
+
+> Nota: Si una subred no alcanza el mínimo de 25 hosts requeridos, el diseño no es válido.
+
+---
+
+### Paso 2: Representación binaria de las subredes
+
+Se realiza la representación binaria del **cuarto octeto** para las primeras subredes generadas, con el fin de comprender:
+
+* El salto entre subredes.
+* La relación entre el valor decimal y su forma binaria.
+
+Este paso ayuda a reforzar la comprensión de cómo se forman las subredes a nivel binario.
+
+---
+
+### Paso 3: Cálculo de la nueva máscara de subred
+
+* Representación de la máscara en binario.
+* Conversión de la máscara a formato decimal punteado.
+
+Este paso permite validar que la máscara elegida cumple con los requisitos de hosts y subredes.
+
+---
+
+### Paso 4: Tabla de subredes
+
+Se documentan todas las subredes disponibles, indicando:
+
+* Dirección de red.
+* Primera dirección de host utilizable.
+* Última dirección de host utilizable.
+* Dirección de broadcast.
+
+No es obligatorio utilizar todas las subredes generadas.
+
+---
+
+## 🧩 Parte 2 – Asignación de subredes a la topología
+
+Las subredes se asignan de la siguiente manera:
+
+* Una subred por cada LAN.
+* Una subred específica para el enlace WAN entre R1 y R2.
+
+Este paso simula la planificación previa necesaria antes de configurar dispositivos reales.
+
+---
+
+## 🧾 Parte 3 – Documentación del esquema de direccionamiento
+
+La asignación de direcciones IP sigue criterios consistentes:
+
+* Routers: primeras direcciones IP utilizables.
+* Switches: segundas direcciones IP utilizables.
+* Hosts: últimas direcciones IP utilizables.
+* Enlace WAN: direcciones IP dedicadas para cada extremo.
+
+Toda esta información se documenta en una tabla de direccionamiento.
+
+---
+
+## ⚙️ Parte 4 – Configuración y verificación
+
+### Configuración
+
+* Configuración de interfaces LAN en R1.
+* Configuración de la interfaz VLAN 1 en S3.
+* Configuración IP completa de PC4.
+
+### Verificación
+
+* Pruebas de conectividad mediante `ping` desde:
+
+  * R1
+  * S3
+  * PC4
+
+El objetivo es confirmar que todas las direcciones IP del esquema son alcanzables.
+
+---
+
+## 📂 Archivos incluidos
+
+* Archivo `.pka` con el laboratorio resuelto.
+* Imagen de la topología de red.
+* Este archivo `README.md` como documentación del ejercicio.
+
+---
+
+## 📝 Notas finales
+
+Este laboratorio refuerza la transición entre el **cálculo teórico de subnetting** y su **aplicación práctica en una red con múltiples segmentos**, siguiendo criterios similares a los utilizados en entornos reales de networking.
