@@ -1,70 +1,64 @@
-Packet Tracer – IPv4 Subnetting Design and Implementation (192.168.100.0/24)
+Packet Tracer – IPv4 Subnetting Scenario
+Overview
 
-Project Summary This lab documents the design and implementation of a fixed-length IPv4 subnetting scheme using the network 192.168.100.0/24. The objective was to divide the address space to support four LAN segments and one WAN link between two routers, ensuring each LAN provides capacity for at least 25 hosts.
+This lab focuses on subnetting an IPv4 network using a fixed-length subnet mask derived from the base network 192.168.100.0/24. The scenario simulates a small enterprise network composed of four LAN segments interconnected through a WAN link between two routers.
 
-The exercise simulates a small enterprise environment where structured address planning, consistent allocation rules, and verification procedures are required.
+Objectives
 
-Network Topology The topology includes:
+Design an IPv4 subnetting scheme
 
-2 Routers (R1 and R2)
+Allocate subnets to four LANs and one WAN link
 
-4 LAN segments
+Configure routers, switches, and end devices
 
-1 WAN link between R1 and R2
+Verify end-to-end connectivity using ping
 
-4 Access Switches (S1–S4)
+Apply structured IP allocation rules
 
-4 End Devices (PC1–PC4)
+Network Topology
 
-Each LAN requires sufficient addressing for:
 
-Router interface
 
-Switch management interface (VLAN 1)
 
-End devices
+The topology includes:
 
-The WAN link requires two usable IP addresses, one per router interface.
+R1 with two LAN interfaces and one WAN interface
 
-Design Requirements Base Network: 192.168.100.0/24
+R2 with two LAN interfaces and one WAN interface
 
-Constraints:
+Four LAN segments (S1–S4 with PCs)
 
-Each LAN must support a minimum of 25 usable host addresses.
+One WAN link between R1 and R2
 
-All subnets must be derived from the /24 network.
+Requirements
 
-Subnetting must satisfy both LAN and WAN requirements.
+Base network: 192.168.100.0/24
 
-Address allocation must follow a consistent and documented rule set.
+Four LANs requiring a minimum of 25 usable host addresses each
 
-Addressing Strategy The subnetting process followed these steps:
+One WAN subnet requiring two usable IP addresses
 
-Determine the total number of required subnets based on the topology.
+Consistent IP allocation strategy across all subnets
 
-Borrow the appropriate number of bits from the host portion.
+Address Space
 
-Validate that the resulting subnet size supports at least 25 usable hosts per LAN.
+Enterprise network: 192.168.100.0/24
 
-Calculate:
+All subnets derived from the /24 base network
 
-Total subnets created
+Subnetting Decision
 
-Usable hosts per subnet
+After analyzing subnet and host requirements, the /24 network was subdivided into equal-length subnets that:
 
-Binary representation of subnet increments
+Provide sufficient usable host addresses per LAN
 
-Build a complete subnet table including:
+Support a dedicated subnet for the WAN link
 
-Subnet address
+Maintain structured and predictable address allocation
 
-First usable host
+The selected subnet mask satisfies the minimum host requirement per LAN while maintaining efficient address utilization.
 
-Last usable host
-
-Broadcast address
-
-Subnet Allocation to Topology Subnets were assigned as follows:
+Subnet Allocation
 
 Subnet 0 → R1 G0/0 LAN
 
@@ -76,86 +70,53 @@ Subnet 3 → R2 G0/1 LAN
 
 Subnet 4 → WAN link between R1 and R2
 
-IP Address Allocation Rules To maintain consistency and clarity, the following allocation policy was applied:
-
+Addressing Rules
 Routers
 
-First usable IP addresses assigned to R1 interfaces.
+First usable IP addresses assigned to R1 interfaces
 
-First usable IP addresses assigned to R2 LAN interfaces.
+First usable IP addresses assigned to R2 LAN interfaces
 
-Last usable IP address in the WAN subnet assigned to R2.
+Last usable IP address in the WAN subnet assigned to R2
 
 Switches
 
-Second usable IP address in each LAN assigned to VLAN 1.
+Second usable IP address in each LAN assigned to VLAN 1
 
 Hosts
 
-Last usable IP address in each LAN assigned to the PC.
+Last usable IP address in each LAN assigned to the PC
 
-This structured allocation approach simplifies troubleshooting and improves documentation clarity.
+Implementation
 
-Implementation The following configurations were completed in Packet Tracer:
+Routers configured with assigned IP addresses and interfaces enabled
 
-Routers
+Switch management interfaces configured with IP address and default gateway
 
-LAN interfaces configured with assigned IP addresses.
+End devices configured with correct IP address, subnet mask, and default gateway
 
-WAN interfaces configured and enabled.
+Dynamic routing (EIGRP) preconfigured between routers
 
-Interfaces verified as operational.
+Testing and Verification
 
-Switches
+Host to default gateway: Successful
 
-VLAN 1 management interface configured.
+Inter-LAN communication: Successful
 
-Default gateway configured to router LAN interface.
+WAN connectivity between routers: Successful
 
-End Devices
+End-to-end connectivity across the network: Successful
 
-IP address configured.
+Files Included
 
-Subnet mask configured.
-
-Default gateway configured.
-
-Routing Dynamic routing (EIGRP) was preconfigured between R1 and R2. Only IP addressing configuration was required.
-
-Verification and Testing Connectivity was validated using the following tests:
-
-Host to default gateway
-
-Inter-LAN communication
-
-End-to-end connectivity across WAN link
-
-Router-to-router reachability
-
-All devices successfully responded to ICMP echo requests according to the addressing plan.
-
-Project Files
-
-subnetting-scenario-192.168.100.0.pka – Packet Tracer configuration file
+subnetting-scenario-192.168.100.0.pka – Packet Tracer lab file
 
 topology.png – Network topology diagram
 
-addressing-table.md – Completed IP addressing table
+addressing-table.md – IP addressing details
 
-subnet-calculations.md – Subnetting calculations and binary breakdown
+subnet-calculations.md – Subnetting calculations and logic
 
-Technical Skills Demonstrated
+Lessons Learned
 
-Fixed-length subnetting (FLSM)
-
-Binary subnet analysis
-
-Structured IP allocation planning
-
-Router and switch interface configuration
-
-Default gateway configuration
-
-Connectivity verification and troubleshooting methodology
-
-Conclusion This lab reinforces disciplined IPv4 address planning in a multi-LAN and WAN environment. The structured subnet allocation model ensures scalability, clarity in documentation, and simplified troubleshooting, aligning with CCNA-level network design practices.
+This lab reinforced IPv4 subnetting concepts, structured address planning, and the importance of consistent IP allocation rules when deploying and troubleshooting multi-LAN enterprise networks.
